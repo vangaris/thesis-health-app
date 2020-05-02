@@ -1,0 +1,51 @@
+.examinations-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 50%;
+
+    .examinations-cart{
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1em;
+      -moz-box-shadow:3px 3px 5px 6px #ccc;
+      -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+      box-shadow:3px 3px 5px 6px #ccc;
+      padding: 2em;
+      
+      .examinations {
+        margin: .2em;
+      }
+    
+      .doctor {
+        margin: .2em;
+      }
+    
+      .status {
+        display: flex;
+        flex-direction: row;
+        margin: .2em;
+      }
+
+      .description {
+        margin-top: 1em;
+        padding-top: 1em;
+      }
+
+      .buttons{
+        border-top:solid 2px gray;
+        padding-top: 2em;
+        display: flex;
+        margin-top: 2em;
+        justify-content: space-evenly;
+
+        button:hover{
+          color: white;
+          border: none;
+        }
+      }
+    }
+  
+
+  }

@@ -1,0 +1,17 @@
+orders:
+run DB : /users/avangelis/mongodb/bin/mongod.exe --dbpath=/users/avangelis/mongodb-data
+nodemon: nodemon  path
+run app: npm run dev
+npm i bcrypt.js@2.4.3 
+
+https://www.npmjs.com/package/react-dom
+https://www.npmjs.com/package/axios
+https://www.npmjs.com/package/cors
+https://www.npmjs.com/package/jsonwebtoken
+https://momentjs.com/docs/
+https://www.npmjs.com/package/mongodb
+https://www.npmjs.com/package/mongoose
+https://www.npmjs.com/package/sass
+https://www.npmjs.com/package/validator
+https://www.npmjs.com/package/nodemon
+https://www.npmjs.com/package/bcryptjs

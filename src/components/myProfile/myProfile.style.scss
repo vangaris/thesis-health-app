@@ -1,0 +1,37 @@
+.profile{
+  width: 50%;
+  margin: 0 auto;
+  font-size: 1.4em;
+
+    .items{
+        margin-top: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        border-left: solid 2px #FA7762;;
+        padding-left: 1em;
+
+        .name {
+          margin: .5em;
+          }
+    
+          .phone {
+            margin: .5em;
+          }
+        
+          .email {
+            margin: .5em;
+          }
+        
+        
+          .updatedDate {
+            margin: .5em;
+          }
+          
+          .createdDate {
+            margin: .5em;
+          }
+    }
+}
+
+

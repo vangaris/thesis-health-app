@@ -1,0 +1,19 @@
+.containerExaminations {
+  display: flex;
+  flex-direction: column;
+
+  .checkboxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: 2em;
+    margin-right: 3em;
+  }
+
+  .examinations {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
