@@ -57,12 +57,9 @@ class Examinations extends React.Component {
     this.state.examinations.forEach(async (exam) => {
       if (exam._id === id) {
         await updateExamination(!exam.completed, id);
-        this.setState(
-          {
-            status: !this.state.status,
-          },
-          () => this.setState(this.state)
-        );
+        this.setState({
+          status: !this.state.status,
+        });
       }
     });
   };

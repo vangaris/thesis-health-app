@@ -44,7 +44,6 @@ class Header extends React.Component {
               <Link to="/myprofile">{this.props.currentUser.name}</Link>{" "}
             </div>
           ) : null}
-
           {this.props.currentUser != null ? (
             <div
               className="signin-logout"
