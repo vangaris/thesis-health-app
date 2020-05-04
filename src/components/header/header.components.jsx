@@ -20,30 +20,31 @@ class Header extends React.Component {
   render() {
     return (
       <div className="header">
-        <Link className="logo-container" to="/">
-          <Logo className="logo" />
-        </Link>
+        <div className="logo-container">
+          <Link to="/">
+            <Logo className="logo" />
+          </Link>
+        </div>
+
         <div className="options">
           {this.props.currentUser != null ? (
-            <Link className="option" to="/examinations">
-              Οι εξετάσεις μου
-            </Link>
+            <div className="option">
+              <Link to="/examinations">Οι εξετάσεις μου</Link>
+            </div>
           ) : null}
-          <div className="options">
-            {" "}
-            {this.props.currentUser != null ? (
-              <Link className="option" to="/createExamination">
-                Προσθήκη
-              </Link>
-            ) : null}
-          </div>
+          {this.props.currentUser != null ? (
+            <div className="option">
+              <Link to="/createExamination">Προσθήκη</Link>
+            </div>
+          ) : null}
         </div>
         <div className="userInfo">
           {this.props.currentUser != null ? (
-            <Link className="name" to="/myprofile">
-              {this.props.currentUser.name}
-            </Link>
+            <div className="name">
+              <Link to="/myprofile">{this.props.currentUser.name}</Link>{" "}
+            </div>
           ) : null}
+
           {this.props.currentUser != null ? (
             <div
               className="signin-logout"
@@ -54,9 +55,9 @@ class Header extends React.Component {
               Εξοδος
             </div>
           ) : (
-            <Link className="signin-logout" to="/sign-up-sign-in">
-              Είσοδος
-            </Link>
+            <div className="signin-logout">
+              <Link to="/sign-up-sign-in">Είσοδος</Link>
+            </div>
           )}
         </div>
       </div>

@@ -61,7 +61,7 @@ class Examinations extends React.Component {
           {
             status: !this.state.status,
           },
-          () => this.forceUpdate()
+          () => this.setState(this.state)
         );
       }
     });

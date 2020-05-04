@@ -1,17 +1,25 @@
 .header {
+  background-color: white;
+  color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  color: black;
   -moz-box-shadow: 3px 3px 5px 6px #ccc;
   -webkit-box-shadow: 3px 3px 5px 6px #ccc;
   box-shadow: 3px 3px 5px 6px #ccc;
   padding-bottom: 1em;
   padding-top: 1em;
-  margin-bottom: 2em;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
 
   .logo-container {
-    // width: 10%;
     .logo {
       padding-top: 0.5em;
     }
@@ -21,42 +29,42 @@
     justify-content: space-evenly;
 
     .option {
-      padding: 1em;
-      cursor: pointer;
       color: black;
-      text-decoration: none;
+      padding: 1.3em;
     }
+
     div:hover {
-      font-weight: 600;
-    }
-    a:hover {
-      font-weight: 600;
+      background-color: #9b2335;
+      border-radius: 25px;
+      a {
+        color: white;
+      }
     }
   }
 
   .userInfo {
     display: flex;
     flex-direction: row;
+    background-color: #343a40;
+    color: white;
+    border-radius: 25px;
+
     div:hover {
-      font-weight: 600;
-    }
-    a:hover {
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .signin-logout {
-      padding: 1em;
+      padding: 1.3em;
       cursor: pointer;
-      color: black;
-      text-decoration: none;
     }
 
     .name {
-      padding: 1em;
-      cursor: pointer;
-      color: black;
-      text-decoration: none;
-      border-right: solid 1px black;
+      padding: 1.3em;
+      border-right: solid 2px white;
+
+      a {
+        color: white;
+      }
     }
   }
 }
