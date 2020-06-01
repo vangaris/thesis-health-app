@@ -73,8 +73,9 @@ class App extends React.Component {
           />
           <Route path="/createExamination" component={CreateExamination} />
           <Route path="/myprofile" component={MyProfile} />
+          <Signin currentUser={currentUser} />
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }
