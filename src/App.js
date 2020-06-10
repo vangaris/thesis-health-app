@@ -12,7 +12,6 @@ import Examinations from "./pages/examinations/examinations.compnent";
 import HomePage from "./pages/homapege/homepage.component";
 import CreateExamination from "./components/create-examination/create-examination.component";
 import MyProfile from "./components/myProfile/myProfile.component";
-import Footer from "../src/components/footer/footer.component";
 
 class App extends React.Component {
   constructor(props) {
@@ -45,7 +44,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.checkIfUserIsAuthenticated();
-
     getExaminations();
   }
 

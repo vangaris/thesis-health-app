@@ -3,10 +3,14 @@ import CustomButton from "../custom-button/custom-button.component";
 import "./examinations-card.style.scss";
 
 class examinationCard extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {};
+  }
+
+  componentWillReceiveProps({ isChanging }) {
+    this.setState({ ...this.state, isChanging });
   }
 
   render() {
@@ -25,106 +29,44 @@ class examinationCard extends React.Component {
           <span className="description">Σχόλια: {this.props.description}</span>
           <div className="buttons">
             {this.props.completed ? (
-              <CustomButton
-                onClick={() => {
-                  this.props.handleStatus(this.props.id);
-                }}
-                style={{ background: "#E65100" }}
-              >
+              <div className="cancel">
                 {" "}
-                Ακυρωση{" "}
-              </CustomButton>
+                <CustomButton
+                  onClick={async () => {
+                    await this.props.handleStatus(this.props.id);
+                  }}
+                  style={{ background: "#E65100" }}
+                >
+                  Ακυρωση
+                </CustomButton>
+              </div>
             ) : (
-              <CustomButton
-                onClick={() => {
-                  this.props.handleStatus(this.props.examinationCardid);
-                }}
-                style={{ background: "#1B5E20" }}
-              >
-                {" "}
-                &#10004;{" "}
-              </CustomButton>
+              <div className={"done"}>
+                <CustomButton
+                  onClick={async () => {
+                    await this.props.handleStatus(this.props.id);
+                  }}
+                  style={{ background: "#1B5E20" }}
+                >
+                  Ολοκλήρωση
+                </CustomButton>
+              </div>
             )}
-            <span>
-              <CustomButton style={{ background: "#FFAB00" }}>
-                {" "}
-                &#9997;{" "}
+            <div className={"delete"}>
+              <CustomButton
+                onClick={async () => {
+                  await this.props.handleDelete(this.props.id);
+                }}
+                style={{ background: "#B71C1C" }}
+              >
+                Διαγραφή
               </CustomButton>
-            </span>
-            <CustomButton
-              onClick={() => {
-                this.props.handleDelete(this.props.id);
-              }}
-              style={{ background: "#B71C1C" }}
-            >
-              {" "}
-              &#10008;{" "}
-            </CustomButton>
+            </div>
           </div>
         </div>
       </div>
     );
   }
 }
-// const examinationCard = ({
-//   handleDelete,
-//   handleStatus,
-//   id,
-//   doctor,
-//   medical_examination,
-//   completed,
-//   description,
-// }) => (
-//   <div className="examinations-container">
-//     <div className="examinations-cart">
-//       <span className="examinations">Εξέταση: {medical_examination}</span>
-//       <span className="doctor"> Γιατρός: {doctor}</span>
-//       {completed ? (
-//         <span className="status">Ολοκληρώθηκε: ναι </span>
-//       ) : (
-//         <span className="status">Ολοκληρώθηκε: οχι </span>
-//       )}
-//       <span className="description">Σχόλια: {description}</span>
-//       <div className="buttons">
-//         {completed ? (
-//           <CustomButton
-//             onClick={() => {
-//               handleStatus(id);
-//             }}
-//             style={{ background: "#E65100" }}
-//           >
-//             {" "}
-//             Ακυρωση{" "}
-//           </CustomButton>
-//         ) : (
-//           <CustomButton
-//             onClick={() => {
-//               handleStatus(id);
-//             }}
-//             style={{ background: "#1B5E20" }}
-//           >
-//             {" "}
-//             &#10004;{" "}
-//           </CustomButton>
-//         )}
-//         <span>
-//           <CustomButton style={{ background: "#FFAB00" }}>
-//             {" "}
-//             &#9997;{" "}
-//           </CustomButton>
-//         </span>
-//         <CustomButton
-//           onClick={() => {
-//             handleDelete(id);
-//           }}
-//           style={{ background: "#B71C1C" }}
-//         >
-//           {" "}
-//           &#10008;{" "}
-//         </CustomButton>
-//       </div>
-//     </div>
-//   </div>
-// );
 
 export default examinationCard;

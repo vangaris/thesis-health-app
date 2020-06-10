@@ -1,37 +1,50 @@
-.profile{
-  width: 50%;
-  margin: 0 auto;
-  font-size: 1.4em;
+.containerProfile {
+  margin: 8em auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-    .items{
-        margin-top: 1em;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        border-left: solid 2px #FA7762;;
-        padding-left: 1em;
+  .profile {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    padding: 2em;
+    margin: 0 auto;
 
-        .name {
-          margin: .5em;
-          }
-    
-          .phone {
-            margin: .5em;
-          }
-        
-          .email {
-            margin: .5em;
-          }
-        
-        
-          .updatedDate {
-            margin: .5em;
-          }
-          
-          .createdDate {
-            margin: .5em;
-          }
+    .items {
+      margin-top: 1em;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      border-left: solid 2px #fa7762;
+      padding-left: 1em;
+
+      .name {
+        margin: 0.5em;
+      }
+
+      .phone {
+        margin: 0.5em;
+      }
+
+      .email {
+        margin: 0.5em;
+      }
+
+      .updatedDate {
+        margin: 0.5em;
+      }
+
+      .createdDate {
+        margin: 0.5em;
+      }
     }
+  }
+  .edit {
+    margin: 0 auto;
+  }
 }
-
-

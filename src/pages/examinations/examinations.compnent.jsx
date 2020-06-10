@@ -15,7 +15,6 @@ class Examinations extends React.Component {
 
     this.state = {
       examinations: [],
-      isLoading: true,
       completed: false,
       nonCompleted: false,
       status: false,
@@ -28,7 +27,6 @@ class Examinations extends React.Component {
     if (userExaminations) {
       this.setState({
         examinations: userExaminations,
-        isLoading: false,
       });
     }
   };
@@ -78,15 +76,25 @@ class Examinations extends React.Component {
     });
   };
 
+  changingStatus = () => {
+    this.setState({
+      isChanging: !this.state.isChanging,
+    });
+  };
+
   componentDidMount() {
     this.geturrentUser();
   }
 
   render() {
-    const { completed, examinations, isLoading, nonCompleted } = this.state;
-    if (this.props.currentUser === null) {
-      return <h5>Loading ...</h5>;
-    }
+    const {
+      completed,
+      examinations,
+      isLoading,
+      nonCompleted,
+      isChanging,
+      status,
+    } = this.state;
 
     return (
       <div className="containerExaminations">
@@ -108,6 +116,7 @@ class Examinations extends React.Component {
           />{" "}
           <label> Μη Ολοκληρωμένες</label>
         </div>
+
         <div className="examinations">
           {(!completed && !nonCompleted) || (completed && nonCompleted)
             ? examinations.map(({ _id, ...examinationsProps }, index) => (
@@ -115,9 +124,11 @@ class Examinations extends React.Component {
                   key={index}
                   handleDelete={this.handleDelete}
                   handleStatus={this.handleStatus}
+                  status={status}
                   {...examinationsProps}
                   id={_id}
                   isLoading={isLoading}
+                  isChanging={isChanging}
                 />
               ))
             : completed
@@ -129,9 +140,11 @@ class Examinations extends React.Component {
                       key={index}
                       handleDelete={this.handleDelete}
                       handleStatus={this.handleStatus}
+                      status={status}
                       {...examinationsProps}
                       id={_id}
                       isLoading={isLoading}
+                      isChanging={isChanging}
                     />
                   );
                 })
@@ -143,9 +156,11 @@ class Examinations extends React.Component {
                       key={index}
                       handleDelete={this.handleDelete}
                       handleStatus={this.handleStatus}
+                      status={status}
                       {...examinationsProps}
                       id={_id}
                       isLoading={isLoading}
+                      isChanging={isChanging}
                     />
                   );
                 })}
