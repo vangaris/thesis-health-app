@@ -6,7 +6,6 @@ import {
   getExaminations,
 } from "../../database/utils";
 
-// import CustomButton from "../../components/custom-button/custom-button.component";
 import ExaminationCard from "../../components/examinations-card/examinations-card.component";
 
 class Examinations extends React.Component {

@@ -1,5 +1,5 @@
 import React from "react";
-import { getProfile } from "../../database/utils";
+import { getProfile, userProfile } from "../../database/utils";
 import moment from "moment/moment";
 import "./myProfile.style.scss";
 import CustomButton from "../custom-button/custom-button.component";
@@ -15,7 +15,7 @@ class MyProfile extends React.Component {
   }
 
   getProfileData = async () => {
-    const getProfileData = await getProfile();
+    const getProfileData = await userProfile();
 
     if (getProfileData) {
       this.setState(

@@ -27,12 +27,6 @@ export const getExaminations = async () => {
   return examinations;
 };
 
-export const getProfile = async () => {
-  const url = "http://localhost:3000/users/me";
-  const profile = await axios.get(url, config);
-  return profile;
-};
-
 export const submitExamination = async (examination) => {
   const url = "http://localhost:3000/examinations";
   const newExamination = await axios.post(url, examination, config);
