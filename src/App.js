@@ -28,7 +28,7 @@ const App = () => {
   }, []);
 
   console.log(loggedUser, currentUser);
-
+//hooks
   return (
     <div className="App">
       <userContext.Provider value={loggedUser}>
