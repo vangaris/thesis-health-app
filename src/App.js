@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useReducer, useEffect } from "react";
 import "./App.css";
 
 import { Switch, Route } from "react-router-dom";
@@ -10,28 +10,46 @@ import Examinations from "./pages/examinations/examinations.compnent";
 import HomePage from "./pages/homapege/homepage.component";
 import CreateExamination from "./components/create-examination/create-examination.component";
 import MyProfile from "./components/myProfile/myProfile.component";
-import Con from "./components/con";
 
 import { userProfile, login } from "./database/utils";
-export const userContext = React.createContext();
+
+export const currentUserContext = React.createContext();
+
+const initialState = {
+  user: {},
+  loggedIn: false,
+  examinations:[]
+}
+
+const reducer = (state, action) => {
+  switch(action.type){
+    case 'LOGIN':
+      return {
+        user: action.user,
+        loggedIn: true, 
+        examinations: action.examinations}
+    default:
+      return state
+  }
+}
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState({});
-  const [loggedUser, setLogginUser] = useState(false);
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   useEffect(() => {
-    userProfile().then((profile) => setCurrentUser(profile.data));
     login("http://localhost:3000/users/login", {
       email: "ag@gmail.com",
       password: "pass1234",
-    }).then((data) => setLogginUser(true));
+    }).then((data) => {
+      dispatch({type:'LOGIN', user: data, loggedIn: true, examinations:['1','2','3']})
+    });
   }, []);
 
-  console.log(loggedUser, currentUser);
+  console.log(state);
 //hooks
   return (
     <div className="App">
-      <userContext.Provider value={loggedUser}>
+      <currentUserContext.Provider  value={state}>
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -41,8 +59,7 @@ const App = () => {
           <Route path="/myprofile" component={MyProfile} />
           <Signin />
         </Switch>
-        <Con />
-        </userContext.Provider>
+        </currentUserContext.Provider>
     </div>
   );
 };
