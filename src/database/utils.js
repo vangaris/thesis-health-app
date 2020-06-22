@@ -16,7 +16,7 @@ export const userProfile = async () => {
 
 export const login = async (url, user) => {
   const userData = await axios.post(url, user);
-  return userData.data.token;
+  return userData.data;
 };
 
 export const getExaminations = async () => {
