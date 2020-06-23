@@ -8,7 +8,7 @@ import { currentUserContext } from "../../App";
 
 function Header() {
   const currentUser = useContext(currentUserContext);
-  console.log(currentUser.state.loggin);
+  console.log(currentUser);
   
   return (
     <div className="header">
@@ -33,13 +33,13 @@ function Header() {
       <div className="userInfo">
         {currentUser.state.loggin? (
           <div className="name">
-            <Link to="/myprofile">{currentUser.state.loggin.toString()}</Link>{" "}
+            <Link to="/myprofile">{currentUser.state.currentUser.name}</Link>{" "}
           </div>
         ) : null}
         {currentUser.state.loggin? (
           <div
             className="signin-logout"
-            onClick={() => currentUser.userDispatch({ type: "LOGOUT", value: false })}
+            onClick={() => currentUser.userDispatch({ type: "LOGOUT", value: {} })}
           >
             Εξοδος
           </div>

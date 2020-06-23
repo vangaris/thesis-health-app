@@ -16,22 +16,20 @@ import { login } from "./database/utils";
 export const currentUserContext = React.createContext();
 
 const initialState = {
-  currentUSer: {},
-  loggin: false
+  currentUser:{},
+  loggin: false,
+  examinations:[]
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
       return {
-        ...state,
-        currentUser: action.value,
-        loggin: action.value,
-      };
-      case "LOGOUT":
-      return {
-        ...state, loggin: action.value
-      }
+        currentUser: action.value, loggin: true,
+      } 
+
+    case "LOGOUT":
+      return {currentUser: action.value, loggin : false};
     default:
       return state;
   }
@@ -42,8 +40,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <currentUserContext.Provider
-        value={{ state, userDispatch: dispatch}}>
+      <currentUserContext.Provider value={{ state, userDispatch: dispatch }}>
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />

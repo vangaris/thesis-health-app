@@ -22,8 +22,7 @@ function Signin() {
     const url = "http://localhost:3000/users/login";
 
     login(url, { email, password }).then((data) => {
-      console.log("currentUser:", data);
-      currentUser.userDispatch({ type: "LOGIN", value: {currentUser: data, loggin: true}});
+      currentUser.userDispatch({ type: "LOGIN", value: {name: data.user.name, token: data.token}});
       localStorage.setItem("currentUser", data);
     }).catch(err => alert(err))
     history.push("/");
