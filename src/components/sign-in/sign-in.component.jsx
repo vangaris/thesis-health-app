@@ -18,7 +18,6 @@ function Signin() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(email, password);
     const url = "http://localhost:3000/users/login";
 
     login(url, { email, password }).then((data) => {
