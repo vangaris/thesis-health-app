@@ -25,11 +25,11 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
       return {
-        currentUser: action.value, loggin: true,
+        currentUser: action.value, loggin: true, examinations : action.value
       } 
 
     case "LOGOUT":
-      return {currentUser: action.value, loggin : false};
+      return {currentUser: action.value, loggin : false, examinations: []};
     default:
       return state;
   }

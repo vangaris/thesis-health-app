@@ -21,7 +21,9 @@ class Examinations extends React.Component {
   }
 
   geturrentUser = async () => {
+    console.log("aaaaaaaaaaaaaaaaaaaaaa")
     const userExaminations = await getExaminations();
+    console.log(userExaminations)
 
     if (userExaminations) {
       this.setState({
