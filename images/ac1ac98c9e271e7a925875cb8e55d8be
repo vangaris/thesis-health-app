@@ -1,0 +1,112 @@
+import React, { useState } from "react";
+import { Grid, Box, Button } from "@material-ui/core";
+import Heading from "../../organism/Heading";
+import bg from "../../../assets/images/feedback.png";
+import InputRating from "../../atoms/InputRating";
+import InputText from "../../atoms/InputText";
+import DialogConfirm from "../../organism/DialogConfirm";
+
+const MyAccountFeedback = () => {
+  const [openDialogConfirm, setOpenDialogConfirm] = useState(false);
+  const [experiece, setExperience] = useState({
+    label: "How satisfied are you with the product experience?",
+    value: 0,
+  });
+
+  const [recommendFriend, setRecommendFriend] = useState({
+    label: "How likely are you to recommend this product to a friend?",
+    value: 0,
+  });
+
+  const [review, setRerview] = useState({
+    label: "Write your review",
+    value: 0,
+  });
+
+  const handleFeedback = (value, setState) => {
+    console.log(value);
+    setState(prevState => ({
+      ...prevState,
+      value,
+    }));
+  };
+
+  const handleReview = (value, setState) => {
+    console.log(value);
+    setState(prevState => ({
+      ...prevState,
+      value,
+    }));
+  };
+
+  console.log(experiece);
+  console.log(recommendFriend);
+  return (
+    <Box>
+      <Heading
+        title="Your opinion matters!"
+        description="We want to improve all the time, that’s why your feedback is very important!"
+        bg={bg}
+      />
+      <Box px={5} py={4}>
+        <Grid container spacing={8}>
+          <Grid item xs={12}>
+            <Grid container spacing={6}>
+              <Grid item xs={12}>
+                <Grid container spacing={6}>
+                  <Grid item xs={12} md={6} lg={4}>
+                    <InputRating
+                      label={experiece.label}
+                      value={experiece.value}
+                      onChange={({ target }) =>
+                        handleFeedback(target.value, setExperience)
+                      }
+                    />
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={12}>
+                <Grid container spacing={6}>
+                  <Grid item xs={12} md={6} lg={4}>
+                    <InputRating
+                      label={experiece.label}
+                      value={recommendFriend.value}
+                      onChange={({ target }) =>
+                        handleFeedback(target.value, setRecommendFriend)
+                      }
+                    />
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={12}>
+                <Grid container spacing={6}>
+                  <Grid item xs={12} md={6} lg={4}>
+                    <InputText label={review.label} multiline />
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={12}>
+            <Button
+              onClick={() => setOpenDialogConfirm(true)}
+              variant="contained"
+              color="primary"
+            >
+              SUBMIT
+            </Button>
+            <DialogConfirm
+              openDialogConfirm={openDialogConfirm}
+              setOpenDialogConfirm={setOpenDialogConfirm}
+              title="Thank you for your message!"
+              titleState="success"
+              text="To view a copy, you may visit the Service Requests tab, in My Profile page."
+            />
+          </Grid>
+        </Grid>
+      </Box>
+    </Box>
+  );
+};
+
+export default MyAccountFeedback;
