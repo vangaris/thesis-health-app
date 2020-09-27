@@ -14,8 +14,8 @@ export const userProfile = async () => {
   return profile;
 };
 
-export const login = async (url, user) => {
-  const userData = await axios.post(url, user);
+export const login = async (user) => {
+  const userData = await axios.post("http://localhost:3000/users/login", user);
   return userData.data.token;
 };
 
