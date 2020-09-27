@@ -2,6 +2,7 @@ const auth = require("../middleware/auth");
 const express = require("express");
 const User = require("../models/user");
 const router = new express.Router();
+const { welcomeEmail } = require("../emails/account");
 var cors = require("cors");
 
 //after request opotion needed
@@ -18,6 +19,7 @@ router.post("/users", async (req, res) => {
 
   try {
     await user.save();
+    welcomeEmail(user.email, user.name);
     const token = await user.generateAuthToken();
     res.status(201).send({
       user,
@@ -155,10 +157,6 @@ const upload = multer({
       return cb(new Error("Please upload image"));
     }
     cb(undefined, true);
-
-    // cb(new Error("Error"));
-    // cb(undefined, true);
-    // cb(undefined, false);
   },
 });
 
