@@ -31,7 +31,6 @@ const AddExamination = () => {
   };
 
   const handleChange = (value, setState) => {
-    console.log(value);
     setState(value);
   };
 

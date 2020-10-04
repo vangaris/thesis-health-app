@@ -11,7 +11,6 @@ const Login = () => {
   const history = useHistory();
 
   const handleChange = (value, setState) => {
-    console.log(value);
     setState(value);
   };
 

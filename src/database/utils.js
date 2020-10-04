@@ -42,7 +42,6 @@ export const submitExamination = async (examination) => {
 export const updateExamination = async (completed, id) => {
   const url = `http://localhost:3000/examinations/${id}`;
   const data = await axios.patch(url, { completed: completed }, config);
-  console.log(data);
 };
 
 export const deleteExamination = async (id) => {

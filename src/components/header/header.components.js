@@ -15,7 +15,6 @@ const Header = () => {
 
   return (
     <div className="header">
-      {console.log("Header -> currentUser", currentUser)}
       <div className="logo-container">
         <Link to="/examinations">
           <Logo className="logo" />
