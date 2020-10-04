@@ -36,8 +36,14 @@ const Login = () => {
       <div className="buttons">
         <CustomButton
           onClick={() => {
-            history.push("/examinations");
-            login({ email, password });
+            login({ email, password })
+              .then((token) => {
+                localStorage.setItem("token", token);
+                history.push("/examinations");
+              })
+              .catch((error) => {
+                alert("wrong credentials");
+              });
           }}
         >
           Log in
