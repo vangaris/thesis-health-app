@@ -12,11 +12,11 @@ Framework a. NodeJS b. express
 
 3. Libraries
 
-React
-npm libraries
-mongoose
-middleware
-bcryptjs
-jsonwebtoken
-jsonwebtoken
-validator
+  React
+  npm libraries
+  mongoose
+  middleware
+  bcryptjs
+  jsonwebtoken
+  jsonwebtoken
+  validator
